@@ -6,3 +6,4 @@ Steps:
 3) git add                           ...use to add the file in the git
 4) git commit                        ...use to save our changes to local machine
     git commit -m (use to give your own message during commit/save)
+5) git status                        ...use to see file status
