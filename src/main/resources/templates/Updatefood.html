@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"&gt;
+<head>
+<meta charset="UTF-8">
+<title>Edit Food Item</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+background-color: #f1f1f1;
+padding: 20px;
+}
+
+.form-container {
+background-color: #fff;
+padding: 20px;
+border-radius: 8px;
+max-width: 500px;
+margin: auto;
+box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+h2 {
+text-align: center;
+color: #333;
+}
+
+label, input, select, textarea {
+display: block;
+width: 98%;
+margin-bottom: 10px;
+}
+
+input, select, textarea {
+padding: 10px;
+border-radius: 4px;
+border: 1px solid #ccc;
+}
+
+.btn {
+background-color: #007bff;
+color: white;
+padding: 10px 15px;
+border: none;
+cursor: pointer;
+width: 100%;
+}
+
+.btn:hover {
+background-color: #0056b3;
+}
+</style>
+</head>
+<body>
+
+	<div class="form-container">
+	<h2>Edit Food Item</h2>
+	
+	<form th:action="@{/food/update}" th:object="${food}" method="post">
+	<!-- Hidden field for ID -->
+	<input type="hidden" th:field="*{id}" />
+	
+	<label for="name">Name</label>
+	<input type="text" th:field="*{name}" required />
+	
+	<label for="description">Description</label>
+	<input type="text" th:field="*{description}" />
+	
+	<label for="image_url">Image (URL or base64)</label>
+	<textarea th:field="*{image_url}" rows="4"></textarea>
+	
+	<label for="quantity">Quantity</label>
+	<input type="number"  th:field="*{quantity}"id="quantity" name="quantity" min="0" placeholder="0" required>
+	
+	<label for="price">Price</label>
+	<input type="number" th:field="*{price}" step="0.01" required />
+	
+	<label for="category">Category</label>
+	 <select th:field="*{category}" id="category" name="category" class="category-select" required>
+          <option value="" disabled selected>Select a category</option>
+          <option value="Appetizers">Appetizers</option>
+          <option value="Main Course">Main Course</option>
+          <option value="Soup">Soup</option>
+          <option value="Dessert">Dessert</option>
+          <option value="Speciality">Speciality</option>
+          <option value="Beverages">Beverages</option>
+        </select>
+	
+	<button type="submit" class="btn">Update</button>
+	</form>
+	</div>
+
+</body>
+</html>
