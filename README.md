@@ -10,3 +10,4 @@ Steps:
 6)  git config --global user.email   ...use to check user mail
 7)   git config --global user.name   ...use to check user name
 8)    git config --global --list     ...use to get all config details like username and email
+9)git remote add origin "git hub link of user"  ...use to set github repository
